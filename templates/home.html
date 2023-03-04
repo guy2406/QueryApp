@@ -27,12 +27,14 @@
     width: 220px;font-size:150%;border-radius: 7px ">
         <label for="selName" style="font-weight: bolder;font-size: 30px">Select Category</label>
         <!-- check required placement -->
-        <select name="selName" id="selID" style="font-size:50em"> 
+        <!-- <select name="selName" id="selID" style="font-size:50em">  -->
+            <select name="selName" id="selID" > 
             {%for title in titles%}
             <option value="{{title}}">{{title}}</option>
             {% endfor %}
         </select>
-        <input type="submit" value="submit" id="SubmitBtn" style="font-size:30em">
+        <!-- <input type="submit" value="submit" id="SubmitBtn" style="font-size:30em"> -->
+        <input type="submit" value="submit" id="SubmitBtn">
         <br><br>
         <label for="serchName" style="font-weight: bold;font-size: 30px">Find in Category</label>
         <input type="text" name="serchName" id="searchID" 
