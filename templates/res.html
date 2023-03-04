@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='res.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans Condensed:300' rel='stylesheet'> 
+</head>
+<body style="background-color:rgb(0, 26, 26);font-family: 'Open Sans Condensed'">
+
+  <div class="container">
+    <div class="left" style="color:white;font-weight: bolder" >
+      <h2>
+        {{RowsCount}} Rows Found <br>
+        Category : {{category}}  <br>
+        Find : {{type}}
+    </h2>
+
+    </div>
+
+    <div class="mid">
+      <br><br>
+    <!-- <form action="/res" method="post"> -->
+      <form action="/res" method="post">
+        <input  name="dwnld" type="submit" 
+        style="background-color:rgb(115, 255, 242);border-radius: 7px;
+        padding: 5px 15px;text-align: center;"
+        value="click to download to
+  your Downloads directory">        
+    </form>
+  
+    </div>
+
+    <div class="right">
+      <br><br><br>
+      <form action="/" method="post">
+        <input name="backHome" type="submit" 
+        style="background-color:yellow;border-radius: 7px"
+        value="return Home">        
+    </form>
+    
+    </div>
+
+  </div>
+
+
+
+
+      <table border='1'>
+    <tr style="background: rgb(94, 18, 204);color:white;position: sticky;top: 0">
+        {% for k in res[0].keys()%}
+        <th >{{k}}</th>
+        {% endfor %}
+        </tr>
+         
+        {% for dict_item in res %}
+        {% if loop.index % 2 == 0 %} {# is even #}
+        <!-- <tr style="background:rgb(115, 255, 242)"> -->
+          <tr style="background:rgb(128, 255, 0)">
+          {% for key, value in dict_item.items() %}
+          <td>
+             {{value}}
+           </td>
+          {% endfor %}
+          </tr>
+       
+            {% else %}
+            <tr style="background:white">       
+    
+       {% for key, value in dict_item.items() %}
+       <td>
+          {{value}}
+        </td>
+       {% endfor %}
+       </tr>
+       {% endif %}
+       
+        {% endfor %}
+</table>
+
+
+</body>
+</html>

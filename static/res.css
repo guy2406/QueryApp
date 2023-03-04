@@ -1,0 +1,12 @@
+.container {
+    display: flex; /* or inline-flex */
+    position: relative;
+  }
+.mid{
+    position: absolute;
+    right: 28%;  
+}
+.right{
+    position: absolute;
+    right: 8%;  
+}
