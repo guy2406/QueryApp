@@ -96,5 +96,5 @@ def res():
     render_template("home.html",titles=myData)
 
 if __name__ == "__main__":
-    app.run(host='localhost',port=7070,debug=True) # for debug
-    #app.run(host='192.168.122.1',port=7070) # for production
+    #app.run(host='localhost',port=7070,debug=True) # for debug
+    app.run(host='0.0.0.0',port=7070) # for production
