@@ -13,6 +13,7 @@ usrInput = []
 
 @app.route("/",methods=['GET','POST'])
 def home():
+    print("testing upload")
     os.chdir(app.root_path)
     f = open('data.json', encoding='utf-8')
     ArrOfDic = json.load(f)
