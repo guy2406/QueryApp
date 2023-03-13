@@ -4,6 +4,7 @@ import json
 import os,sys,csv
 from datetime import datetime
 from sys import platform
+from datetime import date
 
 
 app = Flask(__name__)
@@ -63,11 +64,26 @@ def home():
             a *= -1
 
         now = datetime.now()
-        dt_string = now.strftime("%d %b %Y")
-        data_format_str= "%d %b %Y"
+        dt_string = now.strftime("%d %b %y")
+        # data_format_str= "%d %b %Y"
+        # %y 2 digit year
+        # data_format_str= "%d %m %y"
+        #in google datetime strptime
+        data_format_str= "%d %b %y"
+        print(f' this is a - > {a} this is b {b}')
+        print(f'see this format: {data_format_str}')
         # print(dt_string)
         dn = datetime.strptime(dt_string, data_format_str)
         print(type(dn))
+        print(f'see this format2: {dn}')
+        today = date.today()
+        #today = datetime.date.today()
+        # print(today.strftime("%m/%d/%y"))
+        print(today.strftime("%d %m %y"))
+
+        # formatting the year adding 2 digit number        
+        #if dn.year > 2001:
+        #    dn = dn.replace(year=dn.year-2000)
         CasesGoingToEnd = []
         CasesEnded = []
         # check if i'm in the correct folder after case of donload
@@ -80,10 +96,12 @@ def home():
         for sub in data:
             if sub['Valid Until'] != "":
                 try:
+                   #print(sub['Valid Until'])
                    datetime.strptime(sub['Valid Until'], data_format_str)
                 except:
                     print(sub['Valid Until'])
                     print('!!!!!!')
+                    #exit(0)
                 else:
                     dbDate = datetime.strptime(sub['Valid Until'], data_format_str)
                     test = dn-dbDate
