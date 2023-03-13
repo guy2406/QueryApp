@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open Sans Condensed:300' rel='stylesheet'>  -->
+</head>
+
+<!-- <body style="background-color:rgb(0, 26, 26);font-family: 'Open Sans Condensed'"> -->
+    <body style="background-color:rgb(0, 26, 26);font-family: sans-serif">
+
+    <br>
+    
+    <br>
+    {% if res == 198 %}
+    <button style="background-color:orange;
+    padding: 10px 15px;text-align: center;
+    color:white;position: relative;left: 57em;">did you cancel your download?
+    <br>if not, please email me: guy.weiss@video-flow.com</button>
+    {% endif %}
+
+  <br>
+    <div style="display: inline-block;
+    height: 50px;"></div>
+
+    <!-- <img style="height: 90%; width: 90%" src="{{url_for('static', filename='VF_Main_Logo_1.png')}}"  alt="logo"/> -->
+    <form action="/" method="post" style="position: static;
+    margin: auto;background-color: #006884;color: rgb(128, 255, 0);padding: 10px 20px;
+    width: 300px;font-size:130%;border-radius: 7px ">
+    <img style="height: 90%; width: 90%" src="{{url_for('static', filename='logos/'+'VF_Main_Logo_1.png')}}"  alt="logo"/>
+
+        <h4>Looking for Service agreements
+            that are going to end,
+            or ended.</h4>
+
+        <!-- <label for="GoingTo" style="font-weight: bolder;font-size: 15px">Going to end in (Days):</label> -->
+        <label for="GoingTo" style="font-weight: bolder;font-size: 15px">Going to end in: </label>
+        <!-- <input type="number" name="GoingTo" id="GoingToID" min="1"
+        style="font-size:16px ;height: 25px;border-radius: 7px;Width: 50px" required> -->
+        <input type="number" name="GoingTo" id="GoingToID" min="0"
+        style="font-size:16px ;height: 25px;border-radius: 7px;Width: 50px">
+        <span style="font-weight: bolder;font-size: 15px"> (Days)</span>
+        <br><br>
+        <label for="end" style="font-weight: bold;font-size: 15px">Ended (Days ago):</label>
+        <!-- <input type="number" name="end" id="endID" min="0"
+        style="font-size:16px ;height: 25px;border-radius: 7px;Width: 50px" required> -->
+        <input type="number" name="end" id="endID" min="0"
+        style="font-size:16px ;height: 25px;border-radius: 7px;Width: 50px">
+        <br><br>
+
+        
+        {% if s==18 %}
+        <!-- for windows os the following Submit font-size should be 18px -->
+        <input type="submit" value="submit" id="SubmitBtn" style="font-size: 18px;float:right">
+        {% elif s==50  %}
+        <!-- for MAC os the following Submit font-size should be 50px -->
+        <input type="submit" value="submit" id="SubmitBtn" style="font-size: 50px;float:right">
+        {% else %}
+        <input type="submit" value="submit" id="SubmitBtn" style="font-size: 19px;float:right">
+        {% endif %}
+        <div></div>
+         <br><br>
+    </form>
+    
+</body>
+
+</html>

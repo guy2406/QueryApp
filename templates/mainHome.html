@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:#292B37 ;font-family: sans-serif">
+    <!-- logo 80FF00 -->
+    <!-- background color #42661E -->
+    <!-- try options 94E643  51663C  73B334    -->
+    <!-- https://colors.muz.li/palette/80FF00/6bb300/e6ffbf/ccff80/ffffff -->
+    <!-- or #6bb300   #6bb300  #ccff80 #ffffff -->
+    <!-- http://colormind.io/bootstrap/ -->
+    <!-- or   293B38   7D6C55  739EA4  F3F2EE -->
+    <!-- 252530   A95C58   929BA8    FAF9F9 -->
+    <br><br>
+    <div class="container" style="background-color: #8CABAE;
+display: inline-block;  position: absolute;
+  right: 50%;width: 200px;
+  text-align: center;margin: auto;padding: 10px 20px;border-radius: 7px">
+  <!-- <img src="" alt="logo" /> -->
+  <!-- <img style="height: 90%; width: 90%" src="{{url_for('static', filename='VF_Main_Logo_1.png')}}"  alt="logo"/> -->
+  <img style="height: 90%; width: 90%" src="{{url_for('static', filename='logos/'+'VF_Main_Logo_1.png')}}"  alt="logo"/>
+
+        <!-- <h1>main Page</h1> -->
+        <h3>please select <br> an App</h3>
+        <div style="display: flex;
+        position: relative;">
+            <form action="/" method="post">
+                <input style="padding: 10px 15px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 15px;font-weight: bold" name="Srv" type="submit" value="Service">        
+            </form>
+            <form action="/" method="post" style="margin-left: 40px;">
+                <input style="padding: 10px 15px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 15px;font-weight: bold;" name="Qry" type="submit" value="Query">        
+            </form>    
+    
+        </div>
+    </div>
+</body>
+</html>

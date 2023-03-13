@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='Qres.css') }}"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/'+'Qres.css') }}">
+</head>
+<body>
+  <div class="container">
+    <!-- <img style="height: 90%; width: 90%" src="{{url_for('static', filename='vflogo.png')}}"  alt="logo"/> -->
+    <div class="one">
+      <img src="{{url_for('static', filename='logos/'+'vflogo.png')}}"  alt="logo" width="20" ,height="20"/>
+    </div>
+    <div class="left">
+
+      <a class="active" style="margin-left: 10px;" href="/">Select An App</a>
+    </div>
+
+    <div class="mid">
+    <!-- <form action="/res" method="post"> -->
+      <form action="/res" method="post">
+        <input  name="dwnldFromQry" id="dwnldFromQryID"type="submit" 
+        style="margin-left: 10px;"
+        value="download">        
+    </form>
+  
+    </div>
+  
+    <div class="right">
+      <form action="/" method="post">
+        <input name="backHome" type="submit" 
+        style="background-color:yellow;margin-left: 10px"
+        value="Query Page">        
+    </form>
+    </div>
+  
+
+  </div>
+
+
+
+
+
+    <!-- <div class="left"> -->
+      <h2>
+        {{RowsCount}} Rows Found <br>
+        Category : {{category}}  <br>
+        Find : {{type}}
+    </h2>
+
+    <!-- </div>
+
+    <div class="mid">
+      <br><br> -->
+
+
+
+    <!-- <form action="/res" method="post"> -->
+      <!-- <form action="/res" method="post">
+        <input  name="dwnldFromQry" id="dwnldFromQryID"type="submit" 
+        style="background-color:lightblue;
+        padding: 5px 15px;text-align: center;"
+        value="click to download to
+  your Downloads directory">        
+    </form>
+  
+    </div> -->
+
+    <!-- <div class="right">
+      <br><br><br>
+      <form action="/" method="post">
+        <input name="backHome" type="submit" 
+        style="background-color:yellow"
+        value="Query Page">        
+    </form>
+    
+    </div>
+
+  </div> -->
+
+
+
+
+      <table border='1'>
+    <tr style="background:blue;color:white;position: sticky;top: 0">
+        {% for k in res[0].keys()%}
+        <th >{{k}}</th>
+        {% endfor %}
+        </tr>
+         
+        {% for dict_item in res %}
+        {% if loop.index % 2 == 0 %} {# is even #}
+        <tr style="background:lightblue">
+          {% for key, value in dict_item.items() %}
+          <td>
+             {{value}}
+           </td>
+          {% endfor %}
+          </tr>
+       
+            {% else %}
+            <tr style="background:lightgray">       
+    
+       {% for key, value in dict_item.items() %}
+       <td>
+          {{value}}
+        </td>
+       {% endfor %}
+       </tr>
+       {% endif %}
+       
+        {% endfor %}
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+.topnav{
+    display: flex; /* or inline-flex */
+    position: relative;   
+}

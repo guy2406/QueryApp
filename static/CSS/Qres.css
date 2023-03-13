@@ -2,11 +2,11 @@
     display: flex; /* or inline-flex */
     position: relative;
   }
-.mid{
+/* .mid{
     position: absolute;
-    right: 20%;  
+    right: 50%;  
 }
 .right{
     position: absolute;
-    right: 8%;  
-}
+    right: 25%;  
+} */

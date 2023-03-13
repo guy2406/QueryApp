@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='res2.css') }}"> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open Sans Condensed:300' rel='stylesheet'>  -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='res.css') }}"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/'+'res.css') }}">
+</head>
+<!-- <body style="background-color:rgb(0, 26, 26);font-family: 'Open Sans Condensed';font-style: italic;"> -->
+  <body style="background-color:rgb(0, 26, 26);font-family: sans-serif;font-style: italic;">
+    <!-- nav Bar -->
+    <!-- <div style="color:white">
+      <a class="active" href="#home" style="color:white">Home</a>
+      <button>download</button>
+    </div>
+    <br> -->
+    {% if res2==[] and res==[] %}
+    <br><br>
+    <div style="color:white;text-align: center;">
+      <h1 >no data was Found<br>
+        please try Again with <br>
+         New Params </h1>
+         <!-- in the following case i should redirect to SrvHome.html
+         if this won't work replace with a form  -->
+         <!-- this didn't work!!! -->
+        <!-- <a class="active" href="SrvHome.html" style="color:white">Go Back</a>      -->
+        <form action="/" method="post">
+          <input  name="Srv" type="submit" value="Go Back">        
+      </form>
+    </div>
+    {% else %}
+    <div class="topnav" style="color:white">
+      <div class="subnav1">
+      <img src="{{url_for('static', filename='logos/'+'vflogo.png')}}"  alt="logo" width="20" ,height="20"/>
+      </div>
+      <div class="subnav2">
+      <a class="active" style="margin-left: 10px;color:white" href="/">Select An App</a>
+      </div>
+      <div class="subnav3" style="margin-left: 10px;">
+        <form action="/" method="post">
+          <input name="backFromResSrv" type="submit" 
+          style="background-color:yellow"
+          value="Service Page">        
+      </form>
+
+      </div>
+      <div class="subnav4" style="margin-left: 10px;">
+        <form action="/res" method="post">
+          <input  name="dwnldFromSrv" type="submit" id="dwnldFromSrv" value="download">        
+      </form>
+      </div>
+    </div>
+
+    <h4 style="color:white">{{t}} Total Rows Found <br>
+        {{l1}} Ended Cases <br>
+        {{l2}} Going to End Cases <br>
+    </h4>
+
+
+
+    {% if res==[] %}
+    {% else %}
+    <table border='1'>
+    <!-- <tr style="background: rgb(94, 18, 204);color:white;position: sticky;top: 0"> -->
+        <tr style="background: rgb(128, 255, 0);position: sticky;top: 0">
+        {% for k in res[0].keys()%}
+        <th >{{k}}</th>
+        {% endfor %}
+        </tr>
+         
+        {% for dict_item in res %}
+        {% if loop.index % 2 == 0 %} {# is even #}
+        <!-- <tr style="background:rgb(115, 255, 242)"> -->
+          <tr style="background:#C3F9FF">
+          {% for key, value in dict_item.items() %}
+          <td>
+             {{value}}
+           </td>
+          {% endfor %}
+          </tr>
+       
+            {% else %}
+            <tr style="background:#6398AC">       
+    
+       {% for key, value in dict_item.items() %}
+       <td>
+          {{value}}
+        </td>
+       {% endfor %}
+       </tr>
+       {% endif %}
+       
+        {% endfor %}
+</table>
+{% endif %}
+
+
+{% if res2==[] %}
+{% else %}
+<br><br><br>
+
+
+
+
+<table border='1'>
+    <!-- <tr style="background: rgb(94, 18, 204);color:white;position: sticky;top: 0"> -->
+        <tr style="background: rgb(128, 255, 0);position: sticky;top: 0">
+        {% for k in res2[0].keys()%}
+        <th >{{k}}</th>
+        {% endfor %}
+        </tr>
+         
+        {% for dict_item in res2 %}
+        {% if loop.index % 2 == 0 %} {# is even #}
+        <!-- <tr style="background:rgb(115, 255, 242)"> -->
+          <tr style="background:#C3F9FF">
+          {% for key, value in dict_item.items() %}
+          <td>
+             {{value}}
+           </td>
+          {% endfor %}
+          </tr>
+       
+            {% else %}
+            <tr style="background:#6398AC">       
+    
+       {% for key, value in dict_item.items() %}
+       <td>
+          {{value}}
+        </td>
+       {% endfor %}
+       </tr>
+       {% endif %}
+       
+        {% endfor %}
+</table>
+{% endif %}
+{% endif %}
+</body>
+</html>
