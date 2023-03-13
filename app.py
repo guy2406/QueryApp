@@ -214,8 +214,9 @@ def res():
 
 
         dateVal = datetime.now().strftime("%d_%m_%Y-%H_%M_%S")
+        print(f'test k : {k} and type is {type(k)}')
         print(dateVal)
-        csvFileName = f'{k}-{v}-{dateVal}.csv'
+        csvFileName = f'{k.replace("/","-")}-{v}-{dateVal}.csv'
         print(csvFileName)
         with open(csvFileName, 'w', newline='') as f:
             writer = csv.writer(f)
