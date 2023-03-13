@@ -11,7 +11,7 @@
   {% if res == 169 %}
   <button style="background-color:orange;
   padding: 10px 15px;text-align: center;
-  color:white;position: absolute;right: 50%;">did you cancel your download?
+  color:white;position: relative;left: 20em;">did you cancel your download?
   <br>if not, please email me: guy.weiss@video-flow.com</button>
   {% endif %}
 <br>
@@ -19,7 +19,7 @@
     {% if res == "no match" %}
     <button style="background-color:red;
     padding: 5px 15px;text-align: center;
-    color:white;position: absolute;right: 50%;">No match found please submit again</button>
+    color:white;position: relative;left: 20em;">No match found please submit again</button>
     {% endif %}
 
     <br>
@@ -27,8 +27,8 @@
     <br>
     <div style="  display: inline-block;
   background-color: #739EA4;
-    position: absolute;
-  right: 50%;width: 300px;
+    position: relative;left:48em
+  ;width: 300px;
   text-align: center;margin: auto;padding: 10px 20px;border-radius: 7px">
     
 
@@ -39,7 +39,7 @@
     >
         <label for="selName" style="font-weight: bold;font-size: 30px">Select Category</label>
         <!-- check required placement -->
-        <select name="selName" id="selID" style="height: 30px;width: 150px"> 
+        <select name="selName" id="selID" style="position: static;height: 30px;width: 150px"> 
             {%for title in titles%}
             <option value="{{title}}">{{title}}</option>
             {% endfor %}
