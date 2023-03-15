@@ -7,6 +7,7 @@ from sys import platform
 from datetime import date
 
 
+
 app = Flask(__name__)
 myData = env.header()
 
@@ -61,7 +62,7 @@ def home():
             print(request.form.get('end'))
             # insert how many days After
             a = int(request.form.get('end'))
-            a *= -1
+            #a *= -1
 
         now = datetime.now()
         dt_string = now.strftime("%d %b %y")
@@ -105,11 +106,15 @@ def home():
                 else:
                     dbDate = datetime.strptime(sub['Valid Until'], data_format_str)
                     test = dn-dbDate
-                    if test.days<b and test.days>=0: # days before
+                    #print(f'date from DB is {dbDate} delta is {test.days}')
+                    # if test.days<b and test.days>=0: # days before
+                    if abs(test.days)<b and test.days<=0: # days before
+                        #print("test case going to end")
                         CasesEnded.append(sub)
                         ServiceDataCashe.append(sub)
                         firstCunck.append(sub)
-                    elif test.days>a and test.days<0:
+                    elif abs(test.days)<a and test.days>=0:
+                        #print("test case ended")
                         CasesGoingToEnd.append(sub)
                         ServiceDataCashe.append(sub)
                         secondCunck.append(sub)
@@ -248,7 +253,7 @@ def res():
             testHeader = firstCunck[0].keys()
             with open(csvFileName, 'a', newline='') as f:
                 # f.write('\n\nthis is new data\n')
-                f.write('\nEnded Cases\n')
+                f.write('\nCases that are going to End\n')
                 writer = csv.writer(f)
                 writer.writerow(testHeader)
 
@@ -264,7 +269,7 @@ def res():
             # r = usrInput.pop()
             # [[k,v]] = r.values()
             with open(csvFileName, 'a', newline='') as f:
-                f.write('\nCases that are going to End\n')
+                f.write('\nEnded Cases\n')
                 writer = csv.writer(f)
                 writer.writerow(testHeader)
             with open(csvFileName, 'a', newline='') as f:
